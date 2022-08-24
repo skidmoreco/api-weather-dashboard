@@ -20,14 +20,14 @@ body {
     color: #fff;
 }
 
-.current-info {
+.current-info{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
 }
 
-.date-container {
+.date-container{
     font-weight: 100px
 }
 
@@ -38,4 +38,113 @@ body {
 .date-container #am-pm{
     font-size: 30px;
     margin-left: 20px;
+}
+
+.date-container .date{
+    font-size: 30px;
+}
+
+.place-container{
+    text-align: end;
+}
+
+.place-container .time-zone{
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.place-container .location{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.current-info .others{
+    display: flex;
+    flex-direction: column;
+    background: rgba(168, 168, 189, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #fff;
+}
+
+.current-info .others .weather-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+#city {
+    background: rgba(168, 168, 189, 0.6);
+    color: white;
+}
+
+#srch-button {
+    cursor: pointer;
+}
+
+.future-forecast{
+    background: rgba(168, 168, 189, 0.6);
+    padding: 25px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    color: white;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.future-forecast .today {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.future-forecast .today .day{
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.future-forecast .today .temp{
+    font-size: 18px;
+    padding-top: 15px;
+}
+
+
+.future-forecast .weather-forecast{
+    display: flex;
+}
+
+.weather-forecast .weather-forecast-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 15px;
+
+
+}
+
+.weather-forecast .weather-forecast-item .day{
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.weather-forecast .weather-forecast-item .temp{
+    font-weight: 100;
+}
+
+@media only screen and (max-width:730px){
+    .future-forecast{
+        justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
+    }
 }
