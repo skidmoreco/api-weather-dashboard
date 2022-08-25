@@ -7,8 +7,8 @@ As an assignment for Ohio State Univeristy Bootcamp. We were required create a W
 
 ## SCREENSHOTS:
 ---
-<img src="./IMGS/SC1.png" alt="Screenshot of Work Day Planner w/Date & Time">
-<img src="./IMGS/SC2.png" alt="Screenshot of Local Storage">
+<img src="./ASSETS/IMGS/SC1.png" alt="Screenshot of the Weather Dashboard">
+<img src="./ASSETS/IMGS/SC2.png" alt="Screenshot of Local Storage">
 
 
 
