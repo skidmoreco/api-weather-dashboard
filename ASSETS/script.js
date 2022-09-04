@@ -25,7 +25,7 @@ setInterval(()=> {
     var minutes = time.getMinutes();
     var ampm = hour >=12 ? 'PM' : 'AM'
 
-    currentTimeEl.innerHTML = hoursin12HrFormat + ':' + minutes+ ' ' + `<span id="am-pm">${ampm}</span>`
+    currentTimeEl.innerHTML = (hoursin12HrFormat < 10? '0'+hoursin12HrFormat : hoursin12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>`
 
     todayDateEl.innerHTML  = days[day] + ', ' + date + ' ' + months[month]
 
@@ -49,7 +49,60 @@ function getWeeklyWeather(data) {
     })
     .then(function(data){
         console.log(data)
+        showWeatherData(data);
     })
+
+    
+}
+
+function showWeatherData (data){
+    let {humidity, uvi, sunrise, sunset, wind_speed} = data.current;
+
+    timezone.innerHTML = data.timezone;
+    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
+
+
+    currentWeatherItemsEl.innerHTML =
+    `<div class="weather-item">
+    <div>Humidity</div>
+    <div>${humidity}%</div>
+    </div>
+    <div class="weather-item">
+    <div>Wind Speed</div>
+    <div>${wind_speed}</div>
+    </div>
+    <div class="weather-item">
+    <div>UV Index</div>
+    <div>${uvi}</div>
+    </div>`;
+   
+
+        let otherDayForecast = ''
+    data.daily.forEach((day, idx) => {
+        if(idx == 0){
+            currentTempEl.innerHTML = 
+            `<img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
+            <div class="other">
+              <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+              <div class="temp">Day - ${day.temp.day}&#176; F</div>
+              <div class="temp">Night - ${day.temp.night}&#176; F</div>
+            </div>
+            
+            
+            
+            `
+        }else{
+            otherDayForecast += `
+            <div class="weather-forecast-item">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon"  class="w-icon">
+                <div class="temp">Day - ${day.temp.day}&#176; F</div>
+                <div class="temp">Night - ${day.temp.night}&#176; F</div>
+          </div>`
+        }
+    })
+
+    weatherForcastEl.innerHTML = otherDayForecast;
 }
 
 searchBtn.addEventListener('click', function(e){
