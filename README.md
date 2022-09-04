@@ -3,7 +3,7 @@
 As an assignment for Ohio State Univeristy Bootcamp. We were required create a Work Day Planner using JQuery & Moment.
 ## Live Site:
 --- 
-[Github pages](https://skidmoreco.github.io/api-weather-dashboard;)
+[Github pages](https://skidmoreco.github.io/api-weather-dashboard)
 
 ## SCREENSHOTS:
 ---
